@@ -1,0 +1,201 @@
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" *ngIf="background_image !=null">
+        <img [src]="'http://localhost:8000/Interactive slider/' + background_image" class="imagebanner" alt="Snow" />
+        <div class="centered">
+          <h1></h1>
+          <h2>{{title}}</h2>
+          <div class="d-flex">
+            <i class="fa fa-video fa-3x text-info"></i>
+            <a href="https://youtu.be/t-LLCYKQsSc" class="text-decoration-none text-dark">
+              <h4>{{subtitle}}</h4>
+            </a>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row d-flex justify-content-center align-items-center mid_image" *ngIf="image !=null">
+            <img [src]="'http://localhost:8000/Interactive slider/' + image" class="w-50" alt="Flat Panel Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5 mb-5 p-5">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <img src="./assets/android.png" width="50px" />
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <strong>Android</strong>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <p class="text-muted">11.0</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <img src="./assets/RAM.png" width="50px" />
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <strong>RAM</strong>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <p class="text-muted">4GB DDR4</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <img src="./assets/bazzel.png" width="50px" />
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <strong>Bezel Thickness</strong>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <p class="text-muted">18mm</p>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <img src="./assets/rom.png" width="50px" />
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <strong>Flash Memory</strong>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <p class="text-muted">32GB</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="d-flex justify-centent-center align-items-center" *ngIf="deviceImage !=null">
+          <img [src]="'http://localhost:8000/Device image/' + deviceImage" width="400px" />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>{{deviceTitle}}</h3>
+        <p class="text-muted">
+        {{deviceSubTitle}}
+        </p>
+
+        <div class="d-sm-flex" *ngFor="let dl of deviceItemList">
+          <i class="bi bi-check-circle-fill text-info text-start"></i>
+          <p class="ms-2">{{dl.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <div class="col-md-12 d-flex justify-centent-center align-items-center">
+        <h2 class="mb-5">{{specificationTitle}}</h2>
+      </div>
+    </div>
+    
+    <div class="row mb-5">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>86 inch IFP</th>
+                <th>75 inch IFP</th>
+                <th>65 inch IFP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sl of specificationList">
+                <td>{{sl.feature}}</td>
+                <td>{{sl.inch_86_ifp}}</td>
+                <td>{{sl.inch_75_ifp}}</td>
+                <td>{{sl.inch_65_ifp}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex">
+      <div class="col-md-6">
+        <div class="embed-responsive embed-responsive-16by9 rounded-3">
+          <iframe class="embed-responsive-item" [src]="link"
+            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+            encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      <h3 class="mt-5 d-flex mb-3">Resources</h3>
+      <div class="bg-success">
+        <hr class="" />
+      </div>
+      <div class="col-md-3 mt-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <i class="bi bi-file-earmark-pdf text-info fs-2"></i>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <h5 class="fw-bold">Brocheur</h5>
+        </div>
+      </div>
+      <div class="col-md-3 mt-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <i class="bi bi-bar-chart-line text-info fs-2"></i>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <h5 class="fw-bold">Data Sheet</h5>
+        </div>
+      </div>
+      <div class="col-md-3 mt-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <i class="bi bi-person-badge text-info fs-2"></i>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <h5 class="fw-bold">User Manual</h5>
+        </div>
+      </div>
+      <div class="col-md-3 mt-3">
+        <div class="d-flex justify-centent-center align-items-center">
+          <i class="bi bi-camera-reels text-info fs-2"></i>
+        </div>
+        <div class="mt-3 d-flex justify-centent-center align-items-center">
+          <h5 class="fw-bold">Video</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="position-relative">
+    <div class="container sub">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-8">
+          <div class="card rounded-4 border-0 bg-secondary-subtle shadow-lg">
+            <div class="row align-items-center p-3">
+              <div class="col-md-4">
+                <h1 class="fw-bold">Newsletter</h1>
+                <p class="text-secondary fw-lighter fs-6">
+                  Subscribe and get notification from us
+                </p>
+              </div>
+              <div class="col-md-8">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Your Email:" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2" />
+                  <div class="input-group-append">
+                    <button class="btn btn-primary rounded-0" type="button">
+                      Subscribe
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
