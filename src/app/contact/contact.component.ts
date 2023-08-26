@@ -1,10 +1,76 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from '../service/data-service.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+  address: any;
+  phone: any;
+  mail: any;
+  loading: boolean = false;
 
+  form = {
+    mail: '',
+    subject: '',
+    message: '',
+  };
+
+  constructor(private dataService: DataServiceService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.locationDetails();
+  }
+
+  locationDetails() {
+    this.dataService.locationDetails().subscribe((data: any) => {
+      this.address = data.data[0].address;
+      this.phone = data.data[0].phone;
+      this.mail = data.data[0].mail;
+    });
+  }
+
+  sendMail() {
+    this.loading = true;
+  
+    this.dataService.sendMail(this.form).subscribe(
+      (response: any) => {
+        console.log(response);
+        if (response.status === 'success') {
+          setTimeout(() => {
+            this.loading = false;
+            Swal.fire('Success', 'Message sent successfully!', 'success');
+            this.resetForm();
+            this.router.navigateByUrl('contact');
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            this.loading = false;
+            Swal.fire('Error', 'Failed to send the message! Please fill up the form.', 'error');
+            this.resetForm();
+          }, 2000);
+        }
+      },
+      (error) => {
+        this.loading=false;
+        console.error(error);
+        setTimeout(() => {
+          Swal.fire('Error', 'An error occurred while sending the message.', 'error');
+        });
+      }
+    );
+  }
+  
+
+  resetForm(): void {
+    this.form = {
+      mail: '',
+      subject: '',
+      message: '',
+    };
+  }
 }

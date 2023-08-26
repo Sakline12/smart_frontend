@@ -53,4 +53,38 @@ export class DataServiceService {
   signageDetails(){
     return this.http.get(environment.apiUrl + '/api/open/signage-details');
   }
+
+  //Signage slider
+  signageSliderInfo(){
+    return this.http.get(environment.apiUrl + '/api/open/details-signage-slider');
+  }
+
+  //Signage specification
+  signageSpecification(){
+    return this.http.get(environment.apiUrl + '/api/open/list-of-signage-specification');
+  }
+
+  //Sinage video links
+    SignageVideoLinks(){
+      return this.http.get(environment.apiUrl + '/api/open/signage-video-link-details');
+    }
+
+  //Location details
+
+  locationDetails(){
+    return this.http.get(environment.apiUrl + '/api/open/location-details');
+  }
+
+  //mail send
+
+  sendMail(data: any) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      // Authorization: `Bearer ${localStorage.getItem('token')}`,
+    });
+    return this.http.post(environment.apiUrl + '/api/open/send-a-mail', data, {
+      headers: headers,
+    });
+  }
+
 }

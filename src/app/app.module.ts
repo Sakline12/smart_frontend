@@ -14,6 +14,8 @@ import { Panel65Component } from './panel65/panel65.component';
 import { Panel75Component } from './panel75/panel75.component';
 import { ContactComponent } from './contact/contact.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     Panel65Component,
     Panel75Component,
     ContactComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
