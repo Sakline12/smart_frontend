@@ -1,7 +1,7 @@
 <div class="image-container">
-    <img src="./assets/4698f4e822cb4b3b91ec34509558037b.jpg" alt="Background Image" />
+    <img [src]="'http://localhost:8000/Contact/' + contactBackgroundImage" alt="Background Image" />
     <div class="image-text">
-      <h1 class="text-dark">Contact Us</h1>
+      <h1 class="text-dark">{{contactTitle}}</h1>
       <img src="assets/support.png" class="w-25 p-5" />
     </div>
   </div>

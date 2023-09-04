@@ -19,11 +19,21 @@ export class ContactComponent implements OnInit {
     subject: '',
     message: '',
   };
+  contactTitle: any;
+  contactBackgroundImage: any;
 
   constructor(private dataService: DataServiceService, private router: Router) {}
 
   ngOnInit(): void {
     this.locationDetails();
+    this.contactIntroDetails();
+  }
+
+  contactIntroDetails() {
+    this.dataService.contactIntroDetails().subscribe((data: any) => {
+      this.contactTitle=data.title;
+      this.contactBackgroundImage=data.data.background_image;
+    });
   }
 
   locationDetails() {

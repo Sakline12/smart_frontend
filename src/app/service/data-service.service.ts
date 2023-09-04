@@ -69,6 +69,11 @@ export class DataServiceService {
       return this.http.get(environment.apiUrl + '/api/open/signage-video-link-details');
     }
 
+  //Contact Introduction details
+  contactIntroDetails(){
+    return this.http.get(environment.apiUrl + '/api/open/contact-introduction-details');
+  }
+
   //Location details
 
   locationDetails(){
